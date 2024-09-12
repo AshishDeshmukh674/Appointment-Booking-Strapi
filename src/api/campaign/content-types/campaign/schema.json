@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campaigns",
+  "info": {
+    "singularName": "campaign",
+    "pluralName": "campaigns",
+    "displayName": "Campaign"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Poster": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Start_date": {
+      "type": "date"
+    },
+    "End_Date": {
+      "type": "date"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Details": {
+      "type": "string"
+    }
+  }
+}
