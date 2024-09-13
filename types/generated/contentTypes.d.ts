@@ -953,6 +953,36 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
   };
 }
 
+export interface ApiGalleryGallery extends Schema.CollectionType {
+  collectionName: 'galleries';
+  info: {
+    singularName: 'gallery';
+    pluralName: 'galleries';
+    displayName: 'Gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHospitalHospital extends Schema.CollectionType {
   collectionName: 'hospitals';
   info: {
@@ -1045,6 +1075,7 @@ declare module '@strapi/types' {
       'api::campaign.campaign': ApiCampaignCampaign;
       'api::category.category': ApiCategoryCategory;
       'api::doctor.doctor': ApiDoctorDoctor;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::hospital.hospital': ApiHospitalHospital;
       'api::slider.slider': ApiSliderSlider;
     }
